@@ -8,8 +8,8 @@ pipeline {
         }
         stage('Setup Python') {
             steps {
-                sh 'sudo apt-get update'
-                sh 'sudo apt-get install -y python3 python3-venv python3-pip'
+                sh 'apt-get update'
+                sh 'apt-get install -y python3 python3-venv python3-pip'
             }
         }
         stage('Setup Virtual Environment') {
