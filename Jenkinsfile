@@ -40,7 +40,7 @@ pipeline {
             steps {
                 sh '''
                 . venv/bin/activate
-                python setup.py install
+                python main.py install
                 '''
             }
         }
