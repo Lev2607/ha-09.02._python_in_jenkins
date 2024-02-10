@@ -1,5 +1,5 @@
 import unittest
-from main.py import greet
+from main import greet
 
 class TestGreet(unittest.TestCase):
     def test_greet(self):
