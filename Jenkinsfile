@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Lev2607/ha-09.02._python_in_jenkins'
+                git branch: 'main', url: 'https://github.com/Lev2607/ha-09.02._python_in_jenkins'
             }
         }
         stage('Setup Python') {
