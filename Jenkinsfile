@@ -28,5 +28,10 @@ pipeline {
                 sh 'python -m unittest'
             }
         }
+	stage('Deploy') {
+            steps {
+                sh 'python setup.py install'
+            }
+        }
     }
 }
