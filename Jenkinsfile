@@ -21,8 +21,10 @@ pipeline {
         stage('Setup Virtual Environment') {
             steps {
                 sh '''
-                $HOME/python3.10/bin/python3.10 -m venv venv
+                $HOME/python3.10/bin/python3.10 -m venv --without-pip venv
                 . venv/bin/activate
+                curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+                python get-pip.py
                 '''
             }
         }
