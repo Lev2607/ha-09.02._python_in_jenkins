@@ -30,14 +30,18 @@ pipeline {
         }
         stage('Run tests') {
             steps {
-                sh '. venv/bin/activate'
-                sh 'python -m unittest'
+                sh '''
+                . venv/bin/activate
+                python -m unittest
+                '''
             }
         }
         stage('Deploy') {
             steps {
-                sh '. venv/bin/activate'
-                sh 'python setup.py install'
+                sh '''
+                . venv/bin/activate
+                python setup.py install
+                '''
             }
         }
     }
