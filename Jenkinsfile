@@ -12,7 +12,7 @@ pipeline {
                 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
                 tar xvf Python-3.10.0.tgz
                 cd Python-3.10.0
-                ./configure --enable-optimizations
+                ./configure --enable-optimizations --prefix=$HOME/python3.10
                 make
                 make altinstall
                 '''
@@ -21,7 +21,7 @@ pipeline {
         stage('Setup Virtual Environment') {
             steps {
                 sh '''
-                python3.10 -m venv venv
+                $HOME/python3.10/bin/python3.10 -m venv venv
                 . venv/bin/activate
                 '''
             }
