@@ -6,16 +6,10 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Lev2607/ha-09.02._python_in_jenkins'
             }
         }
-        stage('Setup Python') {
-            steps {
-                sh 'apt-get update'
-                sh 'apt-get install -y python3 python3-venv python3-pip'
-            }
-        }
         stage('Setup Virtual Environment') {
             steps {
                 sh 'python3 -m venv venv'
-                sh '. venv/bin/activate'
+                sh 'source venv/bin/activate'
             }
         }
         stage('Install dependencies') {
@@ -25,10 +19,10 @@ pipeline {
         }
         stage('Run tests') {
             steps {
-                sh 'python -m unittest'
+                sh 'python -m unittest discover'
             }
         }
-	stage('Deploy') {
+        stage('Deploy') {
             steps {
                 sh 'python setup.py install'
             }
